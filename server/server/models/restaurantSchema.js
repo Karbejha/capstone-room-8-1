@@ -7,7 +7,7 @@ const RestaurantSchema = new mongoose.Schema({
         state: { type: String },
         zipCode: { type: Number }
     },
-    contactNumber: { type: Number, required : true, unique : true },
+    contactNumber: { type: Number, required : true },
     logoImage: { type: String }
 });
 
