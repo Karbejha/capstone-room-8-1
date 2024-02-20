@@ -1,22 +1,19 @@
 const mongoose = require("mongoose");
+const User = require("./userSchema")
+const Restaurant = require("./restaurantSchema")
+
 const cartSchema = new mongoose.Schema({
-    items: [
-      {
-        itemName: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'ShopItem',
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
-        tottalBill:{
-          type: Number,
-          required:true
-        }
-      },
-    ],
+    cartID:{
+      type : Number,
+      unique: true,
+      required:true
+    },
+    userID:{
+      type : [User.Schema],
+    },
+    restaurantID :{
+      type : [Restaurant.Schema]
+    }
   });
 
   const Cart = mongoose.model('Cart', cartSchema);

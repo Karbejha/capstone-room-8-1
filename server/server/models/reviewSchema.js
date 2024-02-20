@@ -1,16 +1,16 @@
 const mongoose = require("mongoose")
+const User = require("./userSchema")
+const Restaurant = require("./restaurantSchema")
 
 const reviewSchema = new mongoose.Schema({
-    user_id:{
-        type : String,
+    userID:{
+        type : [User.Schema],
     },
     review:{
         type:String
     },
-    number:{
-        type:number,
-        min : 1,
-        max: 5
+    restaurantID :{
+        type : [Restaurant.Schema]
     }
 })
 
