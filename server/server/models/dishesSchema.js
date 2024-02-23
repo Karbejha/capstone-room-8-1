@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Restaurant = require("./restaurantSchema")
 const DishesSchema = new mongoose.Schema({
   
     dishID:{
@@ -23,6 +24,9 @@ const DishesSchema = new mongoose.Schema({
       category:{
         type:String,
         enum:['cocktail','dish']
+    },
+    restaurantID :{
+        type : [Restaurant.Schema]
     }
 });
 
