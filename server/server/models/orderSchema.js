@@ -1,27 +1,19 @@
 const mongoose = require('mongoose');
+const User = require("./userSchema")
+const Restaurant = require("./restaurantSchema")
+
 const orderSchema = new mongoose.Schema({
-    username: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
-      required: true,
-    },
-    items: [
-      {
-        itemName: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'ShopItem',
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
-        price: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
+  orderID:{
+    type:Number,
+    unique : true , 
+    required: true
+  },
+  userID:{
+    type : [User.Schema],
+  },
+  restaurantID :{
+    type : [Restaurant.Schema]
+  },
     totalBill: {
       type: Number,
       required: true,

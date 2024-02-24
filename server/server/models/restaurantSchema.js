@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const RestaurantSchema = new mongoose.Schema({
+    restaurantID :{
+        type : Number,
+        required : true,
+        unique : true
+    },  
     name: { type: String, required: true, unique: true },
     address: {
         street: { type: String, required: true },
@@ -7,7 +12,7 @@ const RestaurantSchema = new mongoose.Schema({
         state: { type: String },
         zipCode: { type: Number }
     },
-    contactNumber: { type: Number, required : true },
+    phoneNumber: { type: Number, required : true, unique : true },
     logoImage: { type: String }
 });
 
